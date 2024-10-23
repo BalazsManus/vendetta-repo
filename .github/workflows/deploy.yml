@@ -1,13 +1,9 @@
-name: Build
+name: CI
 
 on:
     workflow_dispatch:
     push:
         branches: [master]
-    workflow_run:
-        workflows: ["Build"]
-        types:
-            - completed
 
 jobs:
     deploy:
@@ -16,7 +12,7 @@ jobs:
           contents: write
 
         steps:
-            - uses: actions/checkout@v3
+            - uses: actions/checkout@v4
 
             - name: Prepare environment
               uses: actions/setup-node@v3
